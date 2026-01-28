@@ -1,0 +1,286 @@
+/* Classic, timeless color scheme - dark mode default */
+:root {
+    --bg-color: #121212;
+    --text-color: #e8e8e8;
+    --text-body: #d4d4d4;
+    --text-muted: #9a9a9a;
+    --link-color: #7eb8c9;
+    --border-color: #333;
+}
+
+/* Light mode */
+[data-theme="light"] {
+    --bg-color: #fafafa;
+    --text-color: #1a1a1a;
+    --text-body: #2d2d2d;
+    --text-muted: #666;
+    --link-color: #1a5f7a;
+    --border-color: #e0e0e0;
+}
+
+/* Body and global styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    min-height: 100vh;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.875rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--text-color);
+    border-color: var(--text-muted);
+}
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Section styles */
+section {
+    margin: 15px;
+    padding: 40px;
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Hero section styles */
+.hero {
+    text-align: center;
+    padding: 60px 40px 20px;
+    margin-top: 20px;
+}
+
+.hero-name {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--text-color);
+    border: none;
+    margin: 24px auto 0;
+    transition: background 0.2s ease;
+}
+
+/* Profile section styles */
+.profile-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.profile-img-wrapper {
+    flex-shrink: 0;
+}
+
+.profile_img {
+    width: 220px;
+    height: 293px;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-section h2 {
+    color: var(--text-color);
+    margin: 0 0 16px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.profile-section p {
+    margin: 12px 0;
+    color: var(--text-muted);
+}
+
+.profile-section div p {
+    text-align: left;
+    max-width: 480px;
+}
+
+/* Quick facts section styles */
+.quick-facts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 30px 40px;
+    transition: border-color 0.2s ease;
+}
+
+.quick-facts ul {
+    text-align: left;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.quick-facts li {
+    margin: 14px 0;
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.quick-facts li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--text-color);
+}
+
+/* Nav section styles */
+.nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.nav p {
+    margin: 0;
+}
+
+.nav a {
+    font-weight: 500;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: var(--text-color);
+}
+
+.nav a svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+    .hero-name {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 40px 20px 20px;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .profile-section div p {
+        text-align: center;
+    }
+
+    .profile_img {
+        width: 180px;
+        height: 240px;
+    }
+
+    section {
+        width: 95%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+
+    .hero-name {
+        font-size: 1.75rem;
+    }
+
+    section {
+        margin: 10px;
+        padding: 24px;
+    }
+
+    .profile_img {
+        width: 160px;
+        height: 213px;
+    }
+
+    .profile-section h2 {
+        font-size: 1.15rem;
+    }
+
+    .profile-section div p {
+        max-width: none;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .quick-facts {
+        padding: 24px;
+    }
+
+    .quick-facts ul {
+        padding-left: 10px;
+    }
+
+    .quick-facts li {
+        white-space: normal;
+    }
+
+    .theme-toggle {
+        top: 12px;
+        right: 12px;
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
